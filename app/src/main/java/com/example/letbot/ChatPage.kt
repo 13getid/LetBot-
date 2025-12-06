@@ -32,17 +32,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ChatPage(modifier: Modifier = Modifier){
+fun ChatPage(modifier: Modifier = Modifier,viewModel: ChatViewModel){
     Column(
         modifier = Modifier
     ) {
         AppHeader()
-        MessageInput()
+        MessageInput(onMessageSend = {
+             viewModel.sendMessage(it)
+        })
     }
 }
 
 @Composable
-fun MessageInput(){
+fun MessageInput(onMessageSend :(String)-> Unit){
     var  message by remember {
         mutableStateOf("")
     }
@@ -55,7 +57,10 @@ fun MessageInput(){
             value = message, onValueChange ={
             message = it
         } )
-        IconButton(onClick = { }) {
+        IconButton(onClick = {
+            onMessageSend(message)
+            message = " "
+        }) {
             Icon(
                 imageVector = Icons.Default.Send,
                 contentDescription = "Send")

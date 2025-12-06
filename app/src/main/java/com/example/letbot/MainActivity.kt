@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.ViewModelProvider
 import com.example.letbot.ui.theme.LetBotTheme
 
 class MainActivity : ComponentActivity() {
@@ -15,9 +16,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val chatViewModel = ViewModelProvider(this)[ChatViewModel::class.java]
+
             LetBotTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ChatPage(modifier = Modifier.padding(innerPadding))
+                    ChatPage(modifier = Modifier.padding(innerPadding),chatViewModel)
                 }
             }
         }
