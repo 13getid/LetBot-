@@ -8,8 +8,20 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 .DS_Store
-/build
 /captures
 .externalNativeBuild
 .cxx
+
+/app/google-services.json
+
+# Google & Firebase keys
+google-services.json
+*.json
+
+# Local config files
 local.properties
+
+# Gradle build folders
+/build
+/app/build
+
