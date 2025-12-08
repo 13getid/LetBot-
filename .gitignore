@@ -11,6 +11,7 @@
 /captures
 .externalNativeBuild
 .cxx
+/build
 
 /app/google-services.json
 
@@ -22,6 +23,5 @@ google-services.json
 local.properties
 
 # Gradle build folders
-/build
 /app/build
 
